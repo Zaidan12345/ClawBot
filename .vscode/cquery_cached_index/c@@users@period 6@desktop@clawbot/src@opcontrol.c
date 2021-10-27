@@ -5,6 +5,21 @@
 
 
 //#include "forearm.c"
+void holdShoulderAt(int td) {//target degree
+int kp = 1;
+int maxs = 127;
+Encoder shoulderEncoder;
+shoulderEncoder = encoderInit(QUAD_TOP_PORT, QUAD_BOTTOM_PORT, true);
+int error = td - encoderGet(shoulderEncoder);
+int output = kp * error;
+if(abs(error) < maxs){
+	liftSet(output);
+}
+else{
+	liftSet(output/abs(output) * maxs);
+}
+}
+
 
 void operatorControl() {
 	int power;
@@ -67,6 +82,10 @@ if(joystickGetDigital(1, 6, JOY_UP)) {
 		if (joystickGetDigital(1, 7, JOY_UP)) {
 			homeShoulder(50);
 		}
+
+
+
+
     delay(200);
 
   }

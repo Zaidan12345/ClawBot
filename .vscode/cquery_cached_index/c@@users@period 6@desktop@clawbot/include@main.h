@@ -98,8 +98,6 @@ void initialize();
  */
  // digital port number limit switch is plugged into
  // Digital port number for top and bottom port of quad encoder
- #define QUAD_TOP_PORT 9
- #define QUAD_BOTTOM_PORT 8
 
  // Multiple encoders can be declared
 
