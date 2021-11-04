@@ -21,11 +21,8 @@ printf("homing complete \n");
 }
 */
 
-
-
 #ifndef HOMESHOULDER_H
 #define HOMESHOULDER_H
 #include "main.h"
 void homeShoulder(int homepos);
-
 #endif

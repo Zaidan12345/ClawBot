@@ -1,8 +1,9 @@
 #include "main.h"
 #include "chassis.h"
 
-void clawSet(int speed){
-  motorSet(2, speed);
+void clawSet(int turn, int grip){
+  motorSet(2, grip);
+  motorSet(3, turn);
 }
 
 
@@ -14,11 +15,6 @@ void foreSet(int speed){
 void chassisSet(int left, int right){
   motorSet(1, left);
   motorSet(10, right);
-}
-
-
-void shoulderSet(int speed){
-  motorSet(6, speed);
 }
 
 
