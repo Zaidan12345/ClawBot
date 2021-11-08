@@ -1,7 +1,6 @@
-//#include "main.h"
-
 #ifdef CHASSIS_H
 #define CHASSIS_H
+//#include "main.h"
 
 void clawSet(int turn, int grip);
 
@@ -18,6 +17,6 @@ void liftSet(int speed);
 
 void holdshoulder(int td);
 
-
+void straightline(int x, int y);
 
 #endif

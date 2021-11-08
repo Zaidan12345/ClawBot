@@ -1,7 +1,7 @@
 #include "main.h"
-#include "chassis.c"
+#include "chassis.h"
 #include "homeshoulder.h"
-#include "holdshoulder.c"
+//#include "holdshoulder.h"
 
 void operatorControl() {
 	int power;

@@ -28,6 +28,8 @@
 #define LIMIT_SWITCH 4
 #define QUAD_TOP_PORT 8
 #define QUAD_BOTTOM_PORT 9
+#define LIMIT_SWITCH 4
+
 
 #include <API.h>
 
@@ -101,7 +103,6 @@ void initialize();
 
  // Multiple encoders can be declared
 
-#define LIMIT_SWITCH 4
 void operatorControl();
 
 // End C++ export structure

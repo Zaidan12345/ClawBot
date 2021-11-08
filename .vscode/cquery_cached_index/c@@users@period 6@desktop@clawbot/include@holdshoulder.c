@@ -9,10 +9,10 @@ shoulderEncoder = encoderInit(QUAD_TOP_PORT, QUAD_BOTTOM_PORT, true);
 int error = td - encoderGet(shoulderEncoder);
 int output = kp * error;
 if(abs(error) < maxs){
-  liftSet(output);
+  motorSet(4,-output);
 }
 else{
-  liftSet(output/abs(output) * maxs);
+  motorSet(4,-(output/abs(output) * maxs));
   encoderReset(shoulderEncoder);
 }
 }

@@ -1,6 +1,6 @@
 #include "main.h"
 #include "homeshoulder.h"
-#include "chassis.c"
+#include "chassis.h"
 
 void homeShoulder (int homepos) {
    Encoder  sEncoder; // sencoder for shoulder encoder
@@ -21,7 +21,7 @@ void homeShoulder (int homepos) {
    while(eVal < homepos) {
      liftSet(50);
      printf("moving to home pos %d \n", eVal);
-     if(eVal < homepos) {
+     if(eVal > homepos) {
        liftSet(0);
      }
      eVal = encoderGet(sEncoder);
