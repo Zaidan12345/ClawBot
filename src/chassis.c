@@ -23,11 +23,13 @@ void liftSet(int speed) {
 }
 
 
-void holdshoulder(int td) {//target degree
-int kp = 1;
-int maxs = 127;
-Encoder shoulderEncoder;
-shoulderEncoder = encoderInit(QUAD_TOP_PORT, QUAD_BOTTOM_PORT, true);
+void holdshoulder(int on, Encoder shoulderEncoder) {//target degree
+int td = 0;
+int kp = 1;//constant of proportionality
+int maxs = 127;//max speed
+//Encoder shoulderEncoder;
+//shoulderEncoder = encoderInit(QUAD_TOP_PORT, QUAD_BOTTOM_PORT, true);
+//encoderReset(shoulderEncoder);
 int error = td - encoderGet(shoulderEncoder);
 int output = kp * error;
 if(abs(error) < maxs){
@@ -35,6 +37,6 @@ if(abs(error) < maxs){
 }
 else{
   motorSet(4,-(output/abs(output) * maxs));
-  encoderReset(shoulderEncoder);
 }
+
 }

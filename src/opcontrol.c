@@ -3,37 +3,53 @@
 #include "homeshoulder.h"
 //#include "holdshoulder.h"
 
+
+
+
 void operatorControl() {
 	int power;
 	int turn;
 	int count = 0;
-	Encoder encoder;
 	int powerclaw;
 	int turnclaw;
+
+
+	Encoder shoulderEncoder;
+  shoulderEncoder = encoderInit(QUAD_TOP_PORT, QUAD_BOTTOM_PORT, true);
+	encoderReset(shoulderEncoder);
 
   while (1) {
     power = joystickGetAnalog(1, 1); //vertial axis on left Joystick
     turn = joystickGetAnalog(1, 2); //horizontal axis on left joystick
-		count = encoderGet(encoder);
-		    encoderReset(encoder);
+
+
+
 
     chassisSet(power - turn, power + turn);
-
+	if (joystickGetDigital(1, 7, JOY_RIGHT)){
+	 encoderReset(shoulderEncoder);
+	 printf("encoder zeroed...");
+	}
 // -----------------------------HOLDshoulder V
-		if (joystickGetDigital(1, 6, JOY_DOWN)){
- holdshoulder(0);
+	while (joystickGetDigital(1, 7, JOY_DOWN)){
+ holdshoulder(1, shoulderEncoder);
+ printf("holding... \n");
 }
+
+
+
 //------------------------------Homeshoulder V
 
 		if (joystickGetDigital(1, 7, JOY_UP)) {
 			homeShoulder(50);
+
 		}
 
 //-----------------------------------------------------------CONTROL CLAW V
-powerclaw = joystickGetAnalog(1, 4);
-turnclaw = joystickGetAnalog(1, 3);
+powerclaw = joystickGetAnalog(1, 3);
+turnclaw = joystickGetAnalog(1, 4);
 
-clawSet(turnclaw - powerclaw, powerclaw - turnclaw);
+clawSet(turnclaw, powerclaw);
 
 
 //-----------------------------------CONTROL FOREARM  v
