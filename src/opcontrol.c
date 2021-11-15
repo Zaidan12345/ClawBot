@@ -57,12 +57,15 @@ clawSet(turnclaw, powerclaw);
 
 if(joystickGetDigital(1, 5, JOY_UP)) {
 	foreSet(127);
+		printf("raising arm \n");
 }
 	else if(joystickGetDigital(1, 5, JOY_DOWN)) {
 	foreSet(-127);
+	printf("lowering arm \n");
 }
 	 else {
 	foreSet(0);
+
 }
 
 
