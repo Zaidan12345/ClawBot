@@ -14,6 +14,10 @@ void operatorControl() {
 	int turnclaw;
 	int shoulderL = 22; //cm length of shoulder arm
 	int forearmL = 29; //cm length of forarm
+	int distance;
+
+	Ultrasonic distancesonar;
+
 
 
 	Encoder shoulderEncoder;
@@ -27,6 +31,8 @@ void operatorControl() {
   while (1) {
     power = joystickGetAnalog(1, 1); //vertial axis on left Joystick
     turn = joystickGetAnalog(1, 2); //horizontal axis on left joystick
+
+		distancesonar = ultrasonicInit(2, 1);
 
 
 
@@ -47,14 +53,14 @@ void operatorControl() {
 //------------------------------Homeshoulder V
 
 		if (joystickGetDigital(1, 7, JOY_UP)) {
-			homeShoulder(50);
+			homeShoulder(50, shoulderEncoder);
 
 		}
 
 //-----------------------------------------------------------CONTROL CLAW V
 powerclaw = joystickGetAnalog(1, 3);
 turnclaw = joystickGetAnalog(1, 4);
-
+distance = ultrasonicGet(distancesonar);
 clawSet(turnclaw, powerclaw);
 
 
@@ -62,11 +68,11 @@ clawSet(turnclaw, powerclaw);
 
 
 if(joystickGetDigital(1, 5, JOY_UP)) {
-	foreSet(127);
+	foreSet(-127);
 		printf("raising arm \n");
 }
 	else if(joystickGetDigital(1, 5, JOY_DOWN)) {
-	foreSet(-127);
+	foreSet(127);
 	printf("lowering arm \n");
 }
 	 else {
@@ -90,11 +96,28 @@ if(joystickGetDigital(1, 6, JOY_UP)) {
 		}
 		//--------------------}  CONRTOL SHOULDER ^
 
+if(joystickGetDigital(1, 8, JOY_UP)) {
+
+	printf("front sonar %d \n", distance);
+	if(distance > 20 && distance < 30){
+		chassisSet(60, -60);//go forwards
+	}
+	if(distance < 16 && distance > 0){
+chassisSet(-60, 60);//go backwards
+	}
+	if(distance < 0){
+		chassisSet(60, 60);//look for object
+		}
+		else{
+			chassisSet(0,0);//stop moving
+		}
+	}
+}
+
 
 
 
 
     delay(200);
 
-  }
-}
+  }//whileloop

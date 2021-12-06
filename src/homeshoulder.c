@@ -2,10 +2,7 @@
 //#include "homeshoulder.h"
 //#include "chassis.h"
 
-void homeShoulder (int homepos) {
-   Encoder  sEncoder; // sencoder for shoulder encoder
-   sEncoder = encoderInit (QUAD_TOP_PORT,QUAD_BOTTOM_PORT,true);
-
+void homeShoulder (int homepos, Encoder sEncoder) {
 
    int eVal = encoderGet(sEncoder);
    printf("homeing started, stand by \n");

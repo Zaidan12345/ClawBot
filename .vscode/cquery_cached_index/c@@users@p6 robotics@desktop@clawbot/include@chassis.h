@@ -15,7 +15,7 @@ void shoulderSet(int speed);
 
 void liftSet(int speed);
 
-void holdshoulder(int td);
+void holdshoulder(int td, Encoder shoulderEncoder);
 
 void straightline(int x, int y);
 

@@ -30,6 +30,8 @@
 #define QUAD_BOTTOM_PORT 9
 #define FORE_TOP_PORT 7
 #define FORE_BOTTOM_PORT 6
+#define FRONT_SENSOR_IN 1
+#define FRONT_SENSOR_OUT 2
 
 
 #include <API.h>
