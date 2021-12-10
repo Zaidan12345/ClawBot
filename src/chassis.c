@@ -7,8 +7,8 @@ void clawSet(int turn, int grip){
 }
 
 
-void foreSet(int speed){
-  motorSet(5, speed);
+void foreSet(int speedVar1){
+  motorSet(5, speedVar1);
 }
 
 

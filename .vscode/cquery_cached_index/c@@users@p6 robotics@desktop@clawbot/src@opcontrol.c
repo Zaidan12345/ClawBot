@@ -1,6 +1,7 @@
 #include "main.h"
-#include "chassis.h"
+//#include "chassis.h"
 #include "homeshoulder.h"
+#include "USF.h"
 //#include "holdshoulder.h"
 
 
@@ -13,10 +14,12 @@ void operatorControl() {
 	int powerclaw;
 	int turnclaw;
 	int shoulderL = 22; //cm length of shoulder arm
-	int forearmL = 29; //cm length of forarm
+	int forearmL = 28; //cm length of forarm
 	int distance;
 
 	Ultrasonic distancesonar;
+	Ultrasonic fSonar;
+	fSonar= ultrasonicInit(ORANGE_SENSOR,YELLOW_SENSOR);
 
 
 
@@ -44,7 +47,7 @@ void operatorControl() {
 	}
 // -----------------------------HOLDshoulder V
 	while (joystickGetDigital(1, 7, JOY_DOWN)){
- holdshoulder(1, shoulderEncoder);
+ //commented out for now ... holdshoulder(1, shoulderEncoder);
  printf("holding... \n");
 }
 
@@ -90,11 +93,15 @@ if(joystickGetDigital(1, 6, JOY_UP)) {
 		else if(joystickGetDigital( 1, 6, JOY_DOWN)) {
 			liftSet(-127); //pressing down so lift should go down
 		}
-
 		else {
 			liftSet(0); //no buttons are pressed, stop lift
 		}
 		//--------------------}  CONRTOL SHOULDER ^
+
+		while(joystickGetDigital(1,7,JOY_LEFT)) {
+			printf("Hello \n");
+			ultraSonicFollow(fSonar);
+		}
 
 if(joystickGetDigital(1, 8, JOY_UP)) {
 
@@ -113,6 +120,8 @@ chassisSet(-60, 60);//go backwards
 		}
 	}
 }
+
+
 
 
 
