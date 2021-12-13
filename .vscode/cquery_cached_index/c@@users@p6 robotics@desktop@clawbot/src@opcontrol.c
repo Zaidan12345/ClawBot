@@ -99,10 +99,10 @@ if(joystickGetDigital(1, 6, JOY_UP)) {
 		//--------------------}  CONRTOL SHOULDER ^
 
 		while(joystickGetDigital(1,7,JOY_LEFT)) {
-			printf("Hello \n");
+			printf("usf working \n");
 			ultraSonicFollow(fSonar);
 		}
-
+/* zaidens code for usf
 if(joystickGetDigital(1, 8, JOY_UP)) {
 
 	printf("front sonar %d \n", distance);
@@ -120,7 +120,7 @@ chassisSet(-60, 60);//go backwards
 		}
 	}
 }
-
+*/
 
 
 
@@ -128,5 +128,5 @@ chassisSet(-60, 60);//go backwards
 
 
     delay(200);
-
+}
   }//whileloop
