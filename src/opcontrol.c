@@ -5,11 +5,23 @@
 //#include "holdshoulder.h"
 
 
+/*
+----------------Buttons----------------
+Right:
+
+Left:
+Ultrasonic follow - Left
+Linefollow - Down
+
+
+*/
+
 
 
 void operatorControl() {
 	int power;
 	int turn;
+	int the_R, the_L, the_C;
 	int count = 0;
 	int powerclaw;
 	int turnclaw;
@@ -48,7 +60,11 @@ void operatorControl() {
 // -----------------------------HOLDshoulder V
 	while (joystickGetDigital(1, 7, JOY_DOWN)){
  //commented out for now ... holdshoulder(1, shoulderEncoder);
- printf("holding... \n");
+ //printf("holding... \n");
+
+ //now using this button for linefollow
+	lineFollow(the_R, the_L, the_C); 
+
 }
 
 

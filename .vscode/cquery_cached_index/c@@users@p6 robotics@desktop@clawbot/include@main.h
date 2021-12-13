@@ -37,6 +37,7 @@
 #include <API.h>
 
 #include "chassis.h"
+#include "linefollow.h"
 
 // Allow usage of this file in C++ programs
 #ifdef __cplusplus
