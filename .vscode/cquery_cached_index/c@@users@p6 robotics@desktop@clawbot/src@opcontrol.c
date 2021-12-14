@@ -63,7 +63,7 @@ void operatorControl() {
  //printf("holding... \n");
 
  //now using this button for linefollow
-	lineFollow(the_R, the_L, the_C); 
+	lineFollow(the_R, the_L, the_C);
 
 }
 
@@ -88,11 +88,11 @@ clawSet(turnclaw, powerclaw);
 
 if(joystickGetDigital(1, 5, JOY_UP)) {
 	foreSet(-127);
-		printf("raising arm \n");
+	//	printf("raising arm \n");
 }
 	else if(joystickGetDigital(1, 5, JOY_DOWN)) {
 	foreSet(127);
-	printf("lowering arm \n");
+//	printf("lowering arm \n");
 }
 	 else {
 	foreSet(0);
@@ -115,7 +115,7 @@ if(joystickGetDigital(1, 6, JOY_UP)) {
 		//--------------------}  CONRTOL SHOULDER ^
 
 		while(joystickGetDigital(1,7,JOY_LEFT)) {
-			printf("usf working \n");
+			//printf("usf working \n");
 			ultraSonicFollow(fSonar);
 		}
 /* zaidens code for usf
